@@ -77,12 +77,6 @@ THATS IT U WILL GET TO OPEN TO A SOFTWARE
 ![Screenshot 2024-12-15 192208](https://github.com/user-attachments/assets/7f0e73f1-c6df-461a-8ccf-7153b3a602bf)
 
 
-THANKYOU IF U HAVE ANY QUERIES
-DM pavan.ai22@sahyadri.edu.in ,
-   akhileshsm11@gmail.com ,
-   saidevmakanur2004@gmail.com,
-   partha.am123@gmail.com
-
 
 
 
