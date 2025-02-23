@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select Student</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-md w-96">
+    <h1 class="text-2xl font-bold mb-4">Select Student</h1>
+    <form id="select-student-form">
+      <div class="mb-4">
+        <label for="student-id" class="block text-sm font-medium text-gray-700">Student ID:</label>
+        <input type="text" id="student-id" name="student-id" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring focus:ring-opacity-50">
+      </div>
+      <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600">View Marks</button>
+    </form>
+    <div id="error-message" class="text-red-500 mt-4 text-center"></div>
+  </div>
+
+  <script>
+    document.getElementById('select-student-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const studentId = document.getElementById('student-id').value;
+      console.log('Selected Student ID:', studentId); // Debugging log
+      window.location.href = `/marks.html?studentId=${studentId}`;
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Marks</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-green-400 to-blue-500 flex items-center justify-center h-screen">
+  <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
+    <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Student Marks</h1>
+    <table class="min-w-full bg-white border border-gray-300 rounded-lg overflow-hidden">
+      <thead class="bg-gray-200">
+        <tr>
+          <th class="py-3 px-4 border-b text-left text-gray-700">Subject</th>
+          <th class="py-3 px-4 border-b text-left text-gray-700">Marks</th>
+          <th class="py-3 px-4 border-b text-left text-gray-700">Pass Status</th>
+        </tr>
+      </thead>
+      <tbody id="marks-container"></tbody>
+    </table>
+    <div id="overall-percentage" class="mt-6 text-xl font-bold text-center text-gray-800"></div>
+    <div id="error-message" class="text-red-500 mt-4 text-center"></div>
+  </div>
+
+  <script>
+    async function fetchMarks() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const studentId = urlParams.get('studentId');
+      console.log('Retrieved Student ID:', studentId); // Debugging log
+      if (!studentId) {
+        document.getElementById('error-message').innerText = 'Student ID is missing';
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/marks?studentId=${studentId}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        console.log('Fetched data:', result);
+        if (!result.data) {
+          throw new Error('No data returned from server');
+        }
+        const data = result.data;
+        const overallPercentage = result.overallPercentage;
+        const container = document.getElementById('marks-container');
+        if (data.length === 0) {
+          document.getElementById('error-message').innerText = 'No data available';
+        } else {
+          container.innerHTML = data.map(mark => `
+            <tr>
+              <td class="py-3 px-4 border-b">${mark.subject_name}</td>
+              <td class="py-3 px-4 border-b">${mark.marks}</td>
+              <td class="py-3 px-4 border-b">${mark.pass_status}</td>
+            </tr>
+          `).join('');
+          document.getElementById('overall-percentage').innerText = `Overall Percentage: ${overallPercentage.toFixed(2)}%`;
+        }
+      } catch (error) {
+        console.error('Error fetching data:', error);
+        document.getElementById('error-message').innerText = 'Failed to fetch data: ' + error.message;
+      }
+    }
+
+    fetchMarks();
+  </script>
+</body>
+</html>
