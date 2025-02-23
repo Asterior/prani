@@ -61,7 +61,12 @@ export default function Home() {
       setAttendanceRecords(data);
     }
   }
-  
+  <AttendanceList 
+  attendanceRecords={attendanceRecords} 
+  supabase={supabase} 
+  onAttendanceDeleted={fetchAttendanceRecords} 
+/>
+
   
   
   
@@ -77,7 +82,11 @@ export default function Home() {
       <div className="w-full max-w-4xl grid grid-cols-1 gap-8">
         <AddStudentForm supabase={supabase} onStudentAdded={fetchStudents} />
         <AttendanceForm supabase={supabase} students={students} onAttendanceMarked={fetchAttendanceRecords} />
-        <AttendanceList attendanceRecords={attendanceRecords} />
+        <AttendanceList 
+          attendanceRecords={attendanceRecords} 
+          supabase={supabase} 
+          onAttendanceDeleted={fetchAttendanceRecords} 
+        />
       </div>
     </main>
   )

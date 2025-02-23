@@ -1,11 +1,27 @@
 
 import { useState } from "react"
 
-export default function AddStudentForm({ supabase, onStudentAdded }) {
+interface AddStudentFormProps {
+  supabase: any;
+  onStudentAdded: () => void;
+}
+
+export default function AddStudentForm({ supabase, onStudentAdded }: AddStudentFormProps) {
   const [name, setName] = useState("")
   const [studentId, setStudentId] = useState("")
 
-  async function handleSubmit(e) {
+  interface Student {
+    name: string;
+    student_id: string;
+  }
+
+  interface Supabase {
+    from: (table: string) => {
+      insert: (data: Student) => Promise<{ error: any }>;
+    };
+  }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const { error } = await supabase.from("students").insert({ name, student_id: studentId })
     if (error) console.error("Error adding student:", error)
