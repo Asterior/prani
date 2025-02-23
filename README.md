@@ -1,8 +1,4 @@
 # Timetable DBMS
-HEY FRNDS THIS IS PAVAN FROM SAHYADRI COLLEGE OF ENGINEERING AND MANAGEMENT 
-Me and my friends Akhilesh , Saidev have built this project.
-
-
 ## Features
 - Generates a timetable with classes and labs.
 - Default lunch break from 13:00 to 14:00.
