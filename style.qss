@@ -1,0 +1,103 @@
+
+/* Main Window */
+QMainWindow {
+    background: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+                               stop:0 #E6E6FA, stop:0.5 #D8BFD8, stop:1 #DDA0DD);
+    color: #4B0082;
+}
+
+/* Tabs */
+QTabWidget::pane {
+    border: 1px solid #9370DB;
+    background: rgba(230, 230, 250, 0.95);
+    border-radius: 8px;
+    margin-top: -2px;
+}
+
+QTabBar::tab {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #E6E6FA, stop:1 #D8BFD8);
+    color: #4B0082;
+    padding: 10px 25px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    margin-right: 4px;
+    border: 1px solid #9370DB;
+    border-bottom: none;
+}
+
+QTabBar::tab:selected {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #9370DB, stop:1 #8A2BE2);
+    color: #FFFFFF;
+    margin-bottom: -2px;
+}
+
+/* Buttons */
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #9370DB, stop:1 #8A2BE2);
+    color: white;
+    border: 2px solid #7B68EE;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #B19CD9, stop:1 #9370DB);
+    border-color: #9370DB;
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                               stop:0 #7B68EE, stop:1 #6A5ACD);
+    border-color: #6A5ACD;
+}
+
+/* TreeView */
+QTreeView {
+    background-color: rgba(230, 230, 250, 0.95);
+    border-radius: 8px;
+    padding: 8px;
+    color: #4B0082;
+    border: 1px solid #9370DB;
+    margin: 5px;
+}
+
+QTreeView::item:selected {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                               stop:0 #9370DB, stop:1 #8A2BE2);
+    color: #FFFFFF;
+}
+
+/* Input Fields */
+QLineEdit, QTextEdit, QComboBox {
+    background-color: #F0F0FF;
+    border: 2px solid #D8BFD8;
+    border-radius: 6px;
+    padding: 8px;
+    color: #4B0082;
+    margin: 2px;
+}
+
+QLineEdit:focus, QTextEdit:focus, QComboBox:focus {
+    border: 2px solid #9370DB;
+    background-color: #FFFFFF;
+}
+
+/* Headers and Labels */
+QLabel {
+    color: #4B0082;
+    font-weight: bold;
+    margin: 2px;
+}
+
+QHeaderView::section {
+    background-color: #E6E6FA;
+    color: #4B0082;
+    padding: 8px;
+    border: 1px solid #D8BFD8;
+    border-radius: 4px;
+}
